@@ -1,7 +1,9 @@
 #include "clock.h"
 #include "UI/UI_render.h"
+#include "platform/sys_plat.c"
 
 int main(){
+  while(true){
     char time_buffer[20];
     char date_buffer[20];
 
@@ -18,5 +20,8 @@ int main(){
     };
     
     render(template, (sizeof(template)/sizeof(template[0])));
-    return 0;
+    plat_sleep(10);
+    clrscr();
+  }
+  return 0;
 }
