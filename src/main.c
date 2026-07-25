@@ -15,7 +15,6 @@ int main(){
     Variable template[] = {
       {"time", time_buffer},
       {"date", date_buffer},
-      {"charge", "87"}, 
       {"status", "Connected"},
     };
     
