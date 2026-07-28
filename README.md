@@ -1,67 +1,109 @@
 # Ter-clock
 
-Ter-clock is a terminal based clock that aims for memory efficiency and CPU-friendliness.
-It is an open-source tool with no dependencies and can be setup up in a few time.
-It is made by 'mcro' for Hack Club's YSWS project but is freqently being updated for efficiency and features
+**Ter-clock** is a terminal-based clock that aims for memory efficiency and CPU friendliness.
+
+It is an open-source tool with no dependencies on Windows and can be set up in just a few steps.
+
+Created by **mcro** for Hack Club's **YSWS** project, Ter-clock is being frequently updated with performance improvements and new features.
+
+---
 
 # Update
-## Current version: v0.1
-1. Support template based cutomization for clock interface.
-2. Uses syscalls for sleep and clearing screen.
-3. String substitution for template engine
+
+## Current Version: v0.1
+
+### Features
+
+1. Support for template-based customization of the clock interface.
+2. Uses system calls for sleeping and clearing the screen.
+3. String substitution-based template engine.
+
+---
 
 # Dependencies
-If you are using Linux or macos, you must install a single dependency.
-There is no dependency for Windows
 
-##Ubuntu/Debian
+If you are using **Linux**, **macOS**, or **BSD**, you must install **ncurses**.
+
+> **Windows:** No additional dependencies are required.
+
+## Ubuntu / Debian
+
+```bash
 sudo apt install libncurses5-dev libncursesw5-dev
+```
 
-##Fedora/RHEL
+## Fedora / RHEL
+
+```bash
 sudo dnf install ncurses-devel
+```
 
-##Macos
+## macOS
+
+```bash
 brew install ncurses
+```
 
-##BSD (Berkeley Software Distribution)
+## BSD (Berkeley Software Distribution)
+
+```bash
 pkg install ncurses
+```
 
-# Compiling the project
-Before compiling the project, run the following command:
+---
 
-'''
-	cd ~
-	git clone https://github.com/rachit728/Ter-clock.git
-	cd Ter-clock
-'''
+# Compiling the Project
 
-##Windows
+Before compiling the project, clone the repository:
 
-'''
-	gcc src/main.c -o tclock
-'''
+```bash
+cd ~
+git clone https://github.com/rachit728/Ter-clock.git
+cd Ter-clock
+```
 
-##Linux and BSD
-'''
-	gcc src/main.c -o tclock -lncurses
-'''
+## Windows
 
-# Running the program
-To run the program by using the following command:
+```bash
+gcc src/main.c -o tclock
+```
 
-'''
-	./tclock
-'''
+## Linux & BSD
 
-Also, ter-clock uses a specialized template text-rendering engine to draw UI on the screen.
-If it is not available, then tclock will refuse to run.
-Please see the 'How to use template engine' for more information.
+```bash
+gcc src/main.c -o tclock -lncurses
+```
 
+---
 
+# Running the Program
 
-# How to use template engine
-To use the template engine of 'Ter-clock', we have to compile the clock to a binary and put a file named 'clock.txt' inside the project directory. It must contain the following placeholder because if these place holders and not found, the template engine will fail at string subtitution:
-1. (time) : Displays current time in "Hour:Minute PM/AM" format
-2. (date) : Displays current date in "Day, Month Date " format
-3. (status): Displays the status for the of Wifi-connection (Under construction)
+Run the compiled binary using:
+
+```bash
+./tclock
+```
+
+Ter-clock uses a specialized template text-rendering engine to draw the user interface.
+
+If the required template file is not available, **tclock** will refuse to start.
+
+See **"How to Use the Template Engine"** below for more information.
+
+---
+
+# How to Use the Template Engine
+
+To use Ter-clock's template engine:
+
+1. Compile the project into a binary.
+2. Place a file named **`clock.txt`** inside the project directory.
+
+The file **must** contain the following placeholders. If any of them are missing, the template engine will fail during string substitution.
+
+| Placeholder | Description |
+|------------|-------------|
+| `(time)` | Displays the current time in **Hour:Minute AM/PM** format. |
+| `(date)` | Displays the current date in **Day, Month Date** format. |
+| `(status)` | Displays the Wi-Fi connection status *(Under construction).* |
 
