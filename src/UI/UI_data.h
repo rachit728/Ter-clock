@@ -37,7 +37,7 @@ void substitute(const char *input, char *output, Variable vars[], int count)
 
                 char key[32];
 
-                int len = end - input - 1;
+                size_t len = end - input - 1;
                 if(len >= sizeof(key)) len = sizeof(key) - 1;
 
                 memcpy(key, input + 1, len);

@@ -1,26 +1,30 @@
-#include "clock.h"
-#include "UI/UI_render.h"
-#include "platform/sys_plat.c"
+#include "global.h"
 
-int main(){
-  while(true){
-    char time_buffer[20];
-    char date_buffer[20];
+#include "clock_src/clock_main.c"
+#include "timer_src/timer_main.c"
 
-    time_display(time_buffer, sizeof(time_buffer), 
-                date_buffer, sizeof(date_buffer));
+bool argument_parser(char* find_text, int argc, char* argv[]){
+    //i = 1 becuase first element is the executable name.
+    //This saves a negligible amount of CPU resources
 
+    for (int i = 1; i < argc; i++){
+        if(strcmp(argv[i], find_text) == 0){
+            return true;
+        }
+        printf("%s\n", argv[i]);
+    }
+    return false;
+}
 
-    puts(time_buffer);
-    Variable template[] = {
-      {"time", time_buffer},
-      {"date", date_buffer},
-      {"status", "Connected"},
-    };
-    
-    render(template, (sizeof(template)/sizeof(template[0])));
-    plat_sleep(10);
-    clrscr();
-  }
-  return 0;
+int main(int argc, char* argv[]){
+    if(argument_parser("--clock", argc, argv)){
+        return clock_main();
+    } else if (argument_parser("--timer", argc, argv)){
+        return timer_main();
+    } else{
+        printf("Invalid argument, terminating Ter-clock");
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
 }

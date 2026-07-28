@@ -4,7 +4,9 @@
 
 #ifdef __WIN32
 #include <windows.h>
-#define plat_sleep(seconds) Sleep((seconds) * 1000)
+static inline void sleep(size_t seconds){
+    Sleep((seconds) * 1000);
+}
 #include <windows.h>
 
 void clrscr(void)
@@ -46,7 +48,9 @@ void clrscr(void)
 
 #else
 #include <unistd.h>
-#define plat_sleep(seconds) sleep(seconds)
+static inline void sleep(size_t seconds){
+    sleep(seconds);
+}
 
 #include <curses.h>
 #include <stdio.h>

@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "UI_data.h"
-#define FILENAME "clock.txt"
 
 
 void render(Variable macro[], int count){
