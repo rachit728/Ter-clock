@@ -95,7 +95,7 @@ Run the compiled binary using:
 
 Ter-clock uses a specialized template text-rendering engine to draw the user interface.
 
-If the required template file (filename is 'clock.txt' for clock mode and 'timer.txt' for timer-mode) is not available, **tclock** will refuse to start.
+If the required template file is not available, **tclock** will refuse to start.
 
 See **"How to Use the Template Engine"** below for more information.
 
@@ -103,6 +103,7 @@ See **"How to Use the Template Engine"** below for more information.
 
 # How to Use the Template Engine
 
+## Clock-mode
 To use Ter-clock's template engine:
 
 1. Compile the project into a binary.
@@ -114,5 +115,18 @@ The file **must** contain the following placeholders. If any of them are missing
 |------------|-------------|
 | `(time)` | Displays the current time in **Hour:Minute AM/PM** format. |
 | `(date)` | Displays the current date in **Day, Month Date** format. |
+| `(status)` | Displays the Wi-Fi connection status *(Under construction).* |
+
+## Timer-mode
+To use Ter-clock's template engine:
+
+1. Compile the project into a binary.
+2. Place a file named **`timer.txt`** inside the project directory.
+
+The file **must** contain the following placeholders. If any of them are missing, the template engine will fail during string substitution.
+
+| Placeholder | Description |
+|------------|-------------|
+| `(time)` | Displays the current time in **Hour:Minute:Seconds** format. |
 | `(status)` | Displays the Wi-Fi connection status *(Under construction).* |
 
