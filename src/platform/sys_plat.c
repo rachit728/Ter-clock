@@ -48,6 +48,7 @@ void clrscr(void)
 #include <unistd.h>
 #define plat_sleep(seconds) sleep(seconds)
 
+#include <curses.h>
 #include <stdio.h>
 #include <term.h>
 #include <unistd.h>
