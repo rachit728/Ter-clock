@@ -80,8 +80,17 @@ gcc src/main.c -o tclock -lncurses
 
 Run the compiled binary using:
 
+## Clock-mode
+
 ```bash
-./tclock
+./tclock --clock
+```
+
+## Timer-mode
+
+
+```bash
+./tclock --timer
 ```
 
 Ter-clock uses a specialized template text-rendering engine to draw the user interface.
