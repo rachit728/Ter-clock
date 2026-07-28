@@ -86,7 +86,7 @@ Run the compiled binary using:
 
 Ter-clock uses a specialized template text-rendering engine to draw the user interface.
 
-If the required template file is not available, **tclock** will refuse to start.
+If the required template file (filename is clock.txt) is not available, **tclock** will refuse to start.
 
 See **"How to Use the Template Engine"** below for more information.
 
